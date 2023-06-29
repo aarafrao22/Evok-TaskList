@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class NoteViewModal (application: Application) :AndroidViewModel(application) {
+class NoteViewModal(application: Application) :AndroidViewModel(application) {
 
     // on below line we are creating a variable
     // for our all notes list and repository
