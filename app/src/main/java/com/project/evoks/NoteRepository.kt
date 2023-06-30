@@ -16,6 +16,9 @@ class NoteRepository(private val notesDao: NotesDao) {
         notesDao.insert(note)
     }
 
+    suspend fun updateCheckedState(note: Note) {
+        notesDao.updateCheckedState(note)
+    }
     // on below line we are creating a delete method
     // for deleting our note from database.
     suspend fun delete(note: Note){

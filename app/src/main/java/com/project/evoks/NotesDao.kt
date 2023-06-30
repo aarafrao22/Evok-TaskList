@@ -18,6 +18,8 @@ interface NotesDao {
     @Delete
     suspend fun delete(note: Note)
 
+    @Update
+    suspend fun updateCheckedState(note: Note)
     // below is the method to read all the notes
     // from our database we have specified the query for it.
     // inside the query we are arranging it in ascending

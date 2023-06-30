@@ -13,6 +13,8 @@ class Note(
     @ColumnInfo(name = "title") val noteTitle: String,
     @ColumnInfo(name = "description") val noteDescription: String,
     @ColumnInfo(name = "timestamp") val timeStamp: String,
+    @ColumnInfo(name = "isChecked") var isChecked: Boolean = false
+
 ) {
     // on below line we are specifying our key and
     // then auto generate as true and we are

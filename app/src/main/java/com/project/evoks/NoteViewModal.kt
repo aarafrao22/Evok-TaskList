@@ -7,12 +7,12 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class NoteViewModal(application: Application) :AndroidViewModel(application) {
+class NoteViewModal(application: Application) : AndroidViewModel(application) {
 
     // on below line we are creating a variable
     // for our all notes list and repository
-    val allNotes : LiveData<List<Note>>
-    val repository : NoteRepository
+    val allNotes: LiveData<List<Note>>
+    val repository: NoteRepository
 
     // on below line we are initializing
     // our dao, repository and all notes
@@ -24,8 +24,13 @@ class NoteViewModal(application: Application) :AndroidViewModel(application) {
 
     // on below line we are creating a new method for deleting a note. In this we are
     // calling a delete method from our repository to delete our note.
-    fun deleteNote (note: Note) = viewModelScope.launch(Dispatchers.IO) {
+    fun deleteNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
         repository.delete(note)
+    }
+
+
+    fun updateCheckedState(note: Note) = viewModelScope.launch(Dispatchers.IO) {
+        repository.updateCheckedState(note)
     }
 
     // on below line we are creating a new method for updating a note. In this we are

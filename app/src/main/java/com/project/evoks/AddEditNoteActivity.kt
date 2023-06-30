@@ -32,7 +32,7 @@ class AddEditNoteActivity : AppCompatActivity() {
         viewModal = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-        ).get(NoteViewModal::class.java)
+        )[NoteViewModal::class.java]
 
         // on below line we are initializing all our variables.
         noteTitleEdt = findViewById(R.id.idEdtNoteName)
@@ -46,11 +46,11 @@ class AddEditNoteActivity : AppCompatActivity() {
             val noteTitle = intent.getStringExtra("noteTitle")
             val noteDescription = intent.getStringExtra("noteDescription")
             noteID = intent.getIntExtra("noteId", -1)
-            saveBtn.setText("Update Note")
+            saveBtn.text = "Update Note"
             noteTitleEdt.setText(noteTitle)
             noteEdt.setText(noteDescription)
         } else {
-            saveBtn.setText("Save Note")
+            saveBtn.text = "Save Note"
         }
 
         // on below line we are adding
@@ -85,5 +85,9 @@ class AddEditNoteActivity : AppCompatActivity() {
             startActivity(Intent(applicationContext, MainActivity::class.java))
             this.finish()
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
 }

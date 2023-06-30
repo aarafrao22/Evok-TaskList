@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.util.*
 
-class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInterface {
+class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInterface,NoteClickCheckInterface {
 
     // on below line we are creating a variable
     // for our recycler view, exit text, button and viewmodel.
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
         notesRV.layoutManager = LinearLayoutManager(this)
 
         // on below line we are initializing our adapter class.
-        val noteRVAdapter = NoteRVAdapter(this, this, this)
+        val noteRVAdapter = NoteRVAdapter(this, this, this,this)
 
         // on below line we are setting
         // adapter to our recycler view.
@@ -80,5 +80,10 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
         viewModal.deleteNote(note)
         // displaying a toast message
         Toast.makeText(this, "${note.noteTitle} Deleted", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onCheckIconClick(note: Note) {
+        viewModal.updateCheckedState(note)
+
     }
 }
